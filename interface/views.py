@@ -4,8 +4,14 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('<h1> interface is getting started ......</h1>')
+    return render(request,'interface/root.html')
 
 def home(request):
-    return render(request,'extra/home_temp.html')
+    return render(request,'interface/home.html')
+
+def about(request):
+    return render(request,'interface/about.html')    
+
+def me(request):
+    return render(request,'extra/images/me.jpg')        
         
