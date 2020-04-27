@@ -6,6 +6,13 @@ from django.http import HttpResponse
 data ={
     "user" : "infinity8sailor" ,
     "icon" : "interface/images/me.jpg",
+    "projects" : {
+        "glass-Ai" :[],
+        "#SE" : [],
+        "RoboCup@Home" : []
+    },
+    "tasks" :["long-term","short-term"],
+
     
 }
 
