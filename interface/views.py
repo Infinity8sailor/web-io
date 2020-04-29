@@ -11,7 +11,16 @@ data ={
         "#SE" : [],
         "RoboCup@Home" : []
     },
-    "tasks" :["long-term","short-term"],
+    "term" :["long-term","short-term"],
+    "tasks" :{
+        "b/w - i/o " : [ ],
+        "Api blog" : [],
+        "Api calendar" : [],
+        "Api docs" : [],
+        "resume page" : [],
+        "splitor day" : [],
+        "live stat" : []
+    }
 
     
 }
