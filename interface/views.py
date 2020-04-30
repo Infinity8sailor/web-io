@@ -47,8 +47,8 @@ def home(request):
     return render(request,'interface/home.html')
 
 def about(request):
-    return render(request,'interface/about.html')    
+    return render(request,'interface/index.html')    
 
-def me(request):
-    return render()        
+def docs(request):
+    return render(request, 'interface/docs.html')        
         
