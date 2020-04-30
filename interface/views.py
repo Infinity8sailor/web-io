@@ -11,15 +11,18 @@ data ={
         "#SE" : [],
         "RoboCup@Home" : []
     },
-    "term" :["long-term","short-term"],
+    "terms" :["long-term","short-term"],
     "tasks" :{
-        "b/w - i/o " : [ ],
-        "Api blog" : [],
-        "Api calendar" : [],
-        "Api docs" : [],
-        "resume page" : [],
-        "splitor day" : [],
-        "live stat" : []
+        "b/w - i/o " : [ 80],
+        "Api blog" : [50],
+        "Api calendar" : [50],
+        "Api docs" : [70],
+        "resume page" : [40],
+        "splitor day" : [60],
+        "live stat" : [20],
+        "connectivity": [10],
+        "project_session": [40],
+        "passion": [20]
     }
 
     
