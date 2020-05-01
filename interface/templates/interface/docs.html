@@ -107,7 +107,8 @@
       }).then(function(response) {
         var doc = response.result;
         var title = doc.title;
-        appendPre('Document "' + title + '" successfully found.\n');
+        var body = doc.body;
+        appendPre('Document "' + title+body + '" successfully found.\n');
       }, function(response) {
         appendPre('Error: ' + response.result.error.message);
       });
