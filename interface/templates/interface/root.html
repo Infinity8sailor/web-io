@@ -80,48 +80,53 @@
 					</form>
 				</div>
 			</nav>
-		</div>
-		<nav id="mySidenav" class="sidenav">
-			<a href="#" id="about">About</a>
-			<a href="#" id="blog">Blog</a>
-			<a href="#" id="projects">Projects</a>
-			<a href="#" id="contact">Contact</a>
-		</nav>
-		<div class="card bg-dark ">
-			<div class="card-header text-white bg-dark">
-				Tasks
-				<span class="material-icons" style="float:right;">add_box</span>
-			</div>
-			<ul class="list-group list-group-flush scroll">
-				{% for task in data.tasks %}
-				<span class="list-group-item text-white bg-dark">{{task}}
-					<div class="progress">
-						<div class="progress-bar bg-c-green" style="width:50%">50%</div>
-					</div>
-				</span>
-				{% endfor %}
+			<nav id="mySidenav" class="sidenav">
+				<a href="#" id="about">About</a>
+				<a href="#" id="blog">Blog</a>
+				<a href="#" id="projects">Projects</a>
+				<a href="#" id="contact">Contact</a>
+			</nav>
+			<div class="card bg-dark ">
+				<div class="card-header text-white bg-dark">
+					Tasks
+					<span class="material-icons" style="float:right;">add_box</span>
+				</div>
+				<ul class="list-group list-group-flush scroll">
+					{% for task in data.tasks %}
+					<span class="list-group-item text-white bg-dark">{{task}}
+						<div class="progress">
+							<div class="progress-bar bg-c-green" style="width:50%">50%</div>
+						</div>
+					</span>
+					{% endfor %}
 				</ul>
-		</div>
+			</div>
+			<div id="stat" class="card bg-dark ">
+				<div class="card-header text-white bg-dark">
+					Week-Stat
+				</div>
+				</div>
 			<iframe id = "gmaps" width="300" height="300" frameborder="0" 
 			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC-afFMN7qoeNN0B-FjGrDCGITQRjBcpxg&q=india&maptype=satellite" allowfullscreen></iframe>
-			
-			
-			<!-- Optional JavaScript -->
-			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	        <script>
-				function move(max,e_id) {
-					var elem = document.getElementById(e_id);
-					var width = 1;
-					var max = max;
-					for(i = 0; i < width; i++){
-							width++;
-							elem.style.width = width + '%';
-					}
-					
+		</div>
+		
+		
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script>
+			function move(max,e_id) {
+				var elem = document.getElementById(e_id);
+				var width = 1;
+				var max = max;
+				for(i = 0; i < width; i++){
+					width++;
+					elem.style.width = width + '%';
 				}
+				
+			}
 			</script>
 	</body>
 </html>

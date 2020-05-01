@@ -27,8 +27,11 @@ body {
   top: -100px;
   left: 100px;
 }
-
-.main .navbar {
+.main {
+  position: relative;
+}
+.navbar {
+  position: absolute;
   max-height: 50px;
 }
 
@@ -119,9 +122,10 @@ body {
 }
 
 .card {
+  position: absolute;
+  top: 55px;
+  left: 44%;
   width: 300px;
-  top: -50%;
-  left: 600px;
   height: 300px;
 }
 
@@ -135,7 +139,7 @@ body {
   width: 140px;
   display: grid;
 }
-.list-group-item:hover {
+.list-group .list-group-item:hover {
   color: #212529;
 }
 .scroll {
@@ -145,4 +149,12 @@ body {
 .progress {
   float: right;
   width : 100px;
+}
+
+#stat {
+  position: absolute;
+  top: 55px;
+  left: 4%;
+  width: 600px;
+  height: 300px;
 }
