@@ -106,9 +106,8 @@
         documentId: '1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ/edit#heading=h.gfc5526rm0ke'
       }).then(function(response) {
         var doc = response.result;
-        var title = doc.title;
         var body = doc.body;
-        appendPre('Document "' + title+body + '" successfully found.\n');
+        appendPre('Document "' +body + '" successfully found.\n');
       }, function(response) {
         appendPre('Error: ' + response.result.error.message);
       });
