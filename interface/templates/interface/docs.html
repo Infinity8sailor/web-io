@@ -103,11 +103,11 @@
        */
       function printDocTitle() {
         gapi.client.docs.documents.get({
-        documentId: '1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ/edit#heading=h.gfc5526rm0ke'
+        documentId: '1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ'
       }).then(function(response) {
         var doc = response.result;
-        var body = doc.body;
-        appendPre('Document "' +body + '" successfully found.\n');
+        var title = title.body;
+        appendPre('Document "' +title + '" successfully found.\n');
       }, function(response) {
         appendPre('Error: ' + response.result.error.message);
       });
