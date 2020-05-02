@@ -106,7 +106,7 @@
         documentId: '1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ'
       }).then(function(response) {
         var doc = response.result;
-        var title = title.body;
+        var title = title.doc;
         appendPre('Document "' +title + '" successfully found.\n');
       }, function(response) {
         appendPre('Error: ' + response.result.error.message);
