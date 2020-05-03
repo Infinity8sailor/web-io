@@ -2,8 +2,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from django.views.generic import View 
+   
+from rest_framework.views import APIView 
+from rest_framework.response import Response 
 
-data ={
+
+data1 ={
     "user" : "infinity8sailor" ,
     "icon" : "interface/images/me.jpg",
     "projects" : {
@@ -30,17 +35,8 @@ data ={
 
 
 
-
-
-
-
-
-
-
-
-
 def index(request):
-    context ={"data" : data }
+    context ={"data" : data1 }
     return render(request,'interface/root.html' , context)
 
 def home(request):
@@ -51,4 +47,46 @@ def about(request):
 
 def docs(request):
     return render(request, 'interface/docs.html')        
+
+class HomeView(View): 
+
+    def get(self, request, *args, **kwargs): 
+        context ={"data" : data1 }
+        return render(request, 'interface/root.html' , context) 
+   
+
+  
+class ChartData(APIView): 
+    authentication_classes = [] 
+    permission_classes = [] 
+   
+    def get(self, request, format = None): 
+        labels = [ 
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+            '15',
+            '16',
+            '17',
+            '18',
+        ]
+        chartLabel = "my data"
+        chartdata = [10,30,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,] 
+        data ={ 
+                     "labels":labels, 
+                     "chartLabel":chartLabel, 
+                     "chartdata":chartdata, 
+             } 
+        return Response(data)    
         

@@ -8,8 +8,8 @@
 		
 		<!-- googlematerial font CSS -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-	
+		rel="stylesheet">
+		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,6 +18,9 @@
 		<link rel ="stylesheet" href="{% static "interface/css/style.css" %}">
 		<link rel ="stylesheet" href="{% static "interface/css/corporate.css" %}">
 		
+		<!-- Latest compiled and minified CSS 
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+		-->
 		
 		<title>Root1...</title>
 	</head>
@@ -28,7 +31,7 @@
 					<img src="{% static data.icon %}" class="img-fluid">
 				</span>
 				<div class="navbar-brand " href="{% url "home" %}">
-					{{data.user}}
+					    {{data.user}}
 				</div>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -86,7 +89,7 @@
 				<a href="#" id="projects">Projects</a>
 				<a href="#" id="contact">Contact</a>
 			</nav>
-			<div class="card bg-dark ">
+			<div id="tasks" class="card bg-dark ">
 				<div class="card-header text-white bg-dark">
 					Tasks
 					<span class="material-icons" style="float:right;">add_box</span>
@@ -102,31 +105,40 @@
 				</ul>
 			</div>
 			<div id="stat" class="card bg-dark ">
-				<div class="card-header text-white bg-dark">
+				<div class="card-header text-white bg-dark" >
 					Week-Stat
+					<span style="float:right;">
+						<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
+							<button type="button" class="btn btn-sm btn-primary" id="accountsData">work</button>
+							<button type="button" class="btn btn-sm btn-primary" id="purchasesData">live</button>
+							<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
+						</div>
+					</span>
 				</div>
-				</div>
+				<span>
+					<canvas id="myChartline"  ></canvas> 
+				</span>
+				
+			</div>
 			<iframe id = "gmaps" width="300" height="300" frameborder="0" 
 			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC-afFMN7qoeNN0B-FjGrDCGITQRjBcpxg&q=india&maptype=satellite" allowfullscreen></iframe>
+			
 		</div>
-		
-		
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<script>
-			function move(max,e_id) {
-				var elem = document.getElementById(e_id);
-				var width = 1;
-				var max = max;
-				for(i = 0; i < width; i++){
-					width++;
-					elem.style.width = width + '%';
-				}
-				
-			}
-			</script>
 	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>			
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+	
+	<script type="text/javascript" src="{% static "interface/js/javascript.js" %}"></script>
+	
 </html>
