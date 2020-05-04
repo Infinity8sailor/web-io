@@ -152,9 +152,8 @@ body {
   max-height: 40px;
 }
 
-.card .card-body #myChartline {
+#myChartline {
   overflow: auto;
-  overflow-x: scroll;
   width: auto;
   height: 60%;
 }
@@ -169,5 +168,14 @@ body {
   top: 55px;
   left: 44%;
   width: 300px;
+  height: 300px;
+}
+
+
+.main #projects {
+  position: absolute;
+  top: 455px;
+  left: 35%;
+  width: 600px;
   height: 300px;
 }

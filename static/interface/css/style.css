@@ -171,3 +171,12 @@ body {
   width: 300px;
   height: 300px;
 }
+
+
+#projects {
+  position: absolute;
+  top: 455px;
+  left: 35%;
+  width: 600px;
+  height: 300px;
+}

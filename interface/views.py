@@ -11,24 +11,24 @@ from rest_framework.response import Response
 data1 ={
     "user" : "infinity8sailor" ,
     "icon" : "interface/images/me.jpg",
-    "projects" : {
-        "glass-Ai" :[],
-        "#SE" : [],
-        "RoboCup@Home" : []
-    },
+    "projects" : [
+        ["glass-Ai",10],
+        ["#SE" ,20],
+        ["RoboCup@Home", 85],
+    ],
     "terms" :["long-term","short-term"],
-    "tasks" :{
-        "b/w - i/o " : [ 80],
-        "Api blog" : [50],
-        "Api calendar" : [50],
-        "Api docs" : [70],
-        "resume page" : [40],
-        "splitor day" : [60],
-        "live stat" : [20],
-        "connectivity": [10],
-        "project_session": [40],
-        "passion": [20]
-    }
+    "tasks" :[
+        ["b/w - i/o " , 80],
+        ["Api blog" , 50],
+        ["Api calendar" ,50],
+        ["Api docs" ,70],
+        ["resume page" ,40],
+        ["splitor day" ,60],
+        ["live stat" , 20],
+        ["connectivity", 10],
+        ["project_session", 40],
+        ["passion", 20]
+    ]
 
     
 }

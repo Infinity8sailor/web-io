@@ -44,7 +44,7 @@
 							<div class="dropdown-content">
 								<a href="#">project</a>
 								{% for project in data.projects %}
-								<a href="#">{{project}}</a>
+								<a href="#">{{project.0}}</a>
 								{% endfor %}
 							</div>
 						</div>
@@ -96,9 +96,9 @@
 				</div>
 				<ul class="list-group list-group-flush scroll">
 					{% for task in data.tasks %}
-					<span class="list-group-item text-white bg-dark">{{task}}
+					<span class="list-group-item text-white bg-dark">{{task.0}}
 						<div class="progress">
-							<div class="progress-bar bg-c-green" style="width:50%">50%</div>
+							<div class="progress-bar " style="width:{{task.1}}%">{{task.1}}%</div>
 						</div>
 					</span>
 					{% endfor %}
@@ -115,9 +115,32 @@
 						</div>
 					</span>
 				</div>
-				<span>
-					<canvas id="myChartline"  ></canvas> 
-				</span>
+					<span>
+						<canvas id="myChartline"  ></canvas> 
+					</span>
+			</div>
+			<div id="projects" class="card bg-dark ">
+				<div class="card-header text-white bg-dark" >
+					projects
+					<span style="float:right;">
+						<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
+							<button type="button" class="btn btn-sm btn-primary" id="accountsData">work	</button>
+							<button type="button" class="btn btn-sm btn-primary" id="purchasesData">live</button>
+							<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
+						</div>
+					</span>
+				</div>
+				<ul class="list-group list-group-flush scroll">
+					{% for project in data.projects %}
+					<div id="project" class="card bg-dark ">
+						<span class="list-group-item text-white bg-dark">{{project.0}}
+							<div class="progress">
+							<div class="progress-bar "  style="width:{{project.1}}%">{{project.1}}%</div>
+							</div>
+						</span>
+					</div>
+					{% endfor %}
+				</ul>
 				
 			</div>
 			<iframe id = "gmaps" width="300" height="300" frameborder="0" 
