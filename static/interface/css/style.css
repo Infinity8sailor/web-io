@@ -121,7 +121,7 @@ body {
   overflow-x: scroll;
 }
 .row {
-  max-height: 50vh;
+  
   
 }
 
@@ -137,7 +137,6 @@ body {
 }
 
 #google_docs {
-  padding-top: 5px;
 }
 #stat {
 
