@@ -4,8 +4,8 @@ from django.http import HttpResponse
 
 from django.views.generic import View 
    
-from rest_framework.views import APIView 
-from rest_framework.response import Response 
+#from rest_framework.views import APIView 
+#from rest_framework.response import Response 
 
 
 data1 ={
@@ -89,6 +89,7 @@ def charts(request):
 def docs(request):
     return render(request, 'interface/docs.html')        
 
+"""
 class HomeView(View): 
 
     def get(self, request, *args, **kwargs): 
@@ -133,3 +134,5 @@ class ChartData(APIView):
              } 
         return Response(data)    
         
+
+        """

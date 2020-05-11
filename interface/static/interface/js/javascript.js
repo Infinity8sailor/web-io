@@ -1,11 +1,36 @@
-var endpoint = '/api'; 
+//var endpoint = '/api'; 
+var data= {"labels" : [ 
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+],
+"chartLabel" : "my data",
+"chartdata" : [10,30,20,10,10,60,40,20,30,100,20,70,10,10,10,20,30,0,], 
+"chartdata1": [100,30,80,40,80,40,40,30,10,20,60,50,50,0,70,40,80,50,],
+ };
 		
 $.ajax({ 
-  method: "GET", 
-  url: endpoint, 
-  success: function(data) { 
-    drawLineGraph(data, 'myChartline'); 
-    myDoughnut(data, 'myChartDoughnut');
+  //method: "GET", 
+  //url: endpoint,
+  //var data = data ; 
+  success: function() { 
+    drawLineGraph( 'myChartline'); 
+    myDoughnut( 'myChartDoughnut');
     console.log("drawing"); 
   }, 
   error: function(error_data) { 
@@ -14,11 +39,30 @@ $.ajax({
 }) 
 
 
-function drawLineGraph(data, id) { 
-  var labels = data.labels; 
-  var chartLabel = data.chartLabel; 
-  var chartdata = data.chartdata; 
-  var chartdata1 = data.chartdata1;
+function drawLineGraph( id) { 
+  var labels =  [ 
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+  '14',
+  '15',
+  '16',
+  '17',
+  '18',
+]; 
+  var chartLabel = "my data"; 
+  var chartdata = [10,30,20,10,10,60,40,20,30,100,20,70,10,10,10,20,30,0,]; 
+  var chartdata1 = [100,30,80,40,80,40,40,30,10,20,60,50,50,0,70,40,80,50,];
   var ctx = document.getElementById(id).getContext('2d'); 
   var chart = new Chart(ctx, { 
     // The type of chart we want to create 
@@ -65,7 +109,7 @@ function drawLineGraph(data, id) {
   }); 
 } 
 
-function myDoughnut (data0, id){
+function myDoughnut ( id){
   // And for a doughnut chart
   var ctx = document.getElementById(id).getContext('2d'); 
   var myDoughnutChart = new Chart(ctx, {

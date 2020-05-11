@@ -8,8 +8,8 @@ from django.views.static import serve
 
 urlpatterns = [
     path('', views.index, ),
-    path('charts/', views.charts),
-     path('api/', views.ChartData.as_view()), 
+   # path('charts/', views.charts),
+   #  path('api/', views.ChartData.as_view()), 
     path('home/', views.home, name='home'),
     path('docs/', views.docs, name='about'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
