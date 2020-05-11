@@ -31,7 +31,7 @@
 					<span class="logo-image">
 						<img src="{% static data.icon %}" class="img-fluid">
 					</span>
-					<div class="navbar-brand " href="{% url "home" %}">
+					<div class="navbar-brand ml-2 " href="{% url "home" %}">
 						{{data.user}}
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,7 +84,7 @@
 						</form>
 					</div>
 				</nav>
-				<div id="slide1" class="slide one" style="background: rgb(28, 163, 194);">
+				<div id="slide1" class="slide" style="background: rgb(28, 163, 194);">
 					<div class="content p-0 m-0" >
 						<div class="container-fluid p-0 m-0" >
 							<div class="row m-0 ">
@@ -238,16 +238,47 @@
 						</div>
 					</div>
 				</div>
-				<div class="slide" style="background: rgb(19, 75, 88);"><h5><br><br><br><br> hellllllllllllllllothrer</h5>
+				<div id="slide2" class="slide" style="background: rgb(19, 75, 88);">
 				<iframe id = "gmaps" width="300" height="300" frameborder="0" 
 									src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC-afFMN7qoeNN0B-FjGrDCGITQRjBcpxg&q=india&maptype=satellite" allowfullscreen></iframe>
 				</div>
-				<div class="slide" style="background: rgb(54, 159, 190);">
-					<iframe id="google_docs" src="https://drive.google.com/open?id=1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ" width="750px" height="600px"  frameborder="0"></iframe>
+				<div id="slide3" class="slide" style="background: rgb(54, 159, 190);">
+					<div class="content p-0 m-0" >
+						<div class="container-fluid p-0 m-0"  >
+							<div class="row m-0">
+								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
+									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark">
+										<form class="form-inline my-0 my-lg-0 float-right">
+											<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+											<button class="btn btn-outline-success my-1 my-sm-0" type="submit">re-Search document</button>
+										</form>
+									</nav>
+								</div>
+								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
+									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark">
+										<form class="form-inline my-0 my-lg-0 float-right">
+											<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+											<button class="btn btn-outline-success my-1 my-sm-0" type="submit">re-Search document</button>
+										</form>
+									</nav>
+								</div>
+							</div>
+							<div class="row m-0">
+								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0" style="height: 100vh;width: 50vw;">
+									<iframe id="google_docs" class="flex-fill"
+									src="https://drive.google.com/open?id=1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ"  frameborder="0"></iframe>
+								</div>
+								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0" style="height: 100vh;width: 50vw;">
+									<iframe id="pdf_doc" class="flex-fill"   
+									src="http://relativitet.se/Webarticles/2006AJP-Jonsson74p905.pdf"  frameborder="0"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="slide" style="background: rgb(42, 195, 233);"> 
+				<div id="slide4" class="slide" style="background: rgb(42, 195, 233);"> 
 				</div>
-				<div class="slide" style="background: rgb(32, 175, 201);">
+				<div id="slide5" class="slide" style="background: rgb(32, 175, 201);">
 					<div class="col-sm-6">
 						<div class="card flex-fill">
 							<div class="card-header">

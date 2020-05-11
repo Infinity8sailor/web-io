@@ -76,9 +76,13 @@ data1 ={
 
 
 
-def index(request):
+def index0(request):
     context ={"data" : data1 }
     return render(request,'interface/root.html' , context)
+
+def index(request):
+    context ={"data" : data1 }
+    return render(request,'interface/root.html' , context)    
 
 def home(request):
     return render(request,'interface/home.html')

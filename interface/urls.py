@@ -12,4 +12,7 @@ urlpatterns = [
    #  path('api/', views.ChartData.as_view()), 
     path('home/', views.home, name='home'),
     path('docs/', views.docs, name='about'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
