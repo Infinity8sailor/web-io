@@ -4,8 +4,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(86, 168, 47, 0); }
+  -webkit-tap-highlight-color: rgba(241, 13, 13, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -22,13 +21,32 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff; 
+  
 }
-.main {
+.outer-wrapper {
+  width: 500vw;
+  height: 100vh;
+  
+}
+.wrapper {
+  -webkit-box-align:stretch;
+  align-items:stretch;
+  display:-webkit-box;
+  display:flex;
+  flex-direction: row;
+  width:100vw ;
+  height: 100vh;
+}
+.slide {
+  margin-top: 40px;
+  width: 100vw;
+  max-height: 100vh;
   position: relative;
+  
 }
 .navbar {
   position: absolute;
-  max-height: 50px;
+  max-height: 40px;
 }
 
 .img-fluid{
@@ -51,6 +69,7 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-right: 15px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -81,102 +100,46 @@ body {
 .dropdown:hover .dropbtn {background-color: #da913e;}
 
 
-/* Style the links inside the sidenav */
-#mySidenav a {
-  display: inline-block;
-  position: absolute; /* Position them relative to the browser window */
-  left: -80px; /* Position them outside of the screen */
-  transition: 0.2s; /* Add transition on hover */
-  max-height: 50px;
-  padding: 30px; /* 15px padding */
-  width: 130px; /* Set a specific width */
-  text-decoration: none; /* Remove underline */
-  font-size: 20px; /* Increase font size */
-  color: white; /* White text color */
-  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-}
-
-#mySidenav a:hover {
-  left: 0; /* On mouse-over, make the elements appear as they should */
-}
-
-/* The about link: 20px from the top with a green background */
-#about {
-  top: 50px;
-  background-color: rgb(97, 37, 165);
-}
-#blog {
-  top: 100px;
-  background-color: rgb(54, 34, 109);
-}
-#projects {
-  top: 150px;
-  background-color: rgb(136, 33, 161);
-}#contact {
-  top: 200px;
-  background-color: rgb(40, 241, 241);
-}
-
-
 .list-group {
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
 }
 
 .list-group.list-group-item {
-  float: left;
-  width: 140px;
-  display: grid;
+  width: 100vw;
+  background: darkblue;
 }
-.list-group .list-group-item:hover {
-  color: #212529;
+.list-group-item:hover {
+  background: #dd8511;
+  color: red;
 }
 .scroll {
-  max-height: 300px;
+  height: 40vh;
   overflow-y: auto;
 }
-.progress {
-  float: right;
-  width : 100px;
+.scroll-x {
+  overflow-x: scroll;
 }
-
-#stat {
-  position: absolute;
-  top: 55px;
-  left: 4%;
-  width: 600px;
-  height: 300px;
+.row {
+  max-height: 50vh;
+  
 }
 
 .card .card-header {
-  max-height: 40px;
+  height: 40px;
+}
+#slide1 .card {
+
 }
 
-.card .card-body #myChartline {
-  overflow: auto;
-  overflow-x: scroll;
-  width: auto;
-  height: 60%;
+#myChartline {
+  
 }
 
-#gmaps {
-      position: absolute;
-      top: 400px;
-      left: 100px;
-    }
-#tasks {
-  position: absolute;
-  top: 55px;
-  left: 44%;
-  width: 300px;
-  height: 300px;
+#google_docs {
+  padding-top: 5px;
+}
+#stat {
+
 }
 
-
-#projects {
-  position: absolute;
-  top: 455px;
-  left: 35%;
-  width: 600px;
-  height: 300px;
-}

@@ -122,7 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = "/var/www/web-io/static/"
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
 
 # List of finder classes that know how to find static files in
 # various locations.
