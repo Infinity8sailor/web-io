@@ -12,9 +12,13 @@ data1 ={
     "user" : "infinity8sailor" ,
     "icon" : "interface/images/me.jpg",
     "projects" : [
-        ["glass-Ai",10],
-        ["#SE" ,20],
-        ["RoboCup@Home", 85],
+        ["glass-Ai",10,40],
+        ["#SE" ,20,70],
+        ["RoboCup@Home", 85, 40],
+        ["interface" , 100, 50],
+        ["wave-io", 10, 70],
+        ["mL + Ai" , 20, 60],
+        ["vit-Edi", 70, 50]
     ],
     "terms" :["long-term","short-term"],
     "tasks" :[
@@ -28,6 +32,43 @@ data1 ={
         ["connectivity", 10],
         ["project_session", 40],
         ["passion", 20]
+    ],
+    "hackthones" : [
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+        ["mechathone","20 may", "5 june" , "Done"],
+
+        
     ]
 
     
@@ -42,8 +83,8 @@ def index(request):
 def home(request):
     return render(request,'interface/home.html')
 
-def about(request):
-    return render(request,'interface/index.html')    
+def charts(request):
+    return render(request,'interface/charts.html')    
 
 def docs(request):
     return render(request, 'interface/docs.html')        
@@ -82,11 +123,13 @@ class ChartData(APIView):
             '18',
         ]
         chartLabel = "my data"
-        chartdata = [10,30,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,] 
+        chartdata = [10,30,20,10,10,60,40,20,30,100,20,70,10,10,10,20,30,0,] 
+        chartdata1= [100,30,80,40,80,40,40,30,10,20,60,50,50,0,70,40,80,50,]
         data ={ 
                      "labels":labels, 
                      "chartLabel":chartLabel, 
-                     "chartdata":chartdata, 
+                     "chartdata":chartdata,
+                     "chartdata1" : chartdata1, 
              } 
         return Response(data)    
         
