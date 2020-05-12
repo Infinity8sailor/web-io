@@ -43,9 +43,9 @@
 							<div class="dropdown" ref="#">
 								<button class="btn btn-outline-success my-2 my-sm-0">Projects</button>
 								<div class="dropdown-content">
-									<a href="#">project</a>
+									<b href="#">project</b>
 									{% for project in data.projects %}
-									<a href="#">{{project.0}}</a>
+									<b href="#">{{project.0}}</b>
 									{% endfor %}
 								</div>
 							</div>
@@ -53,28 +53,28 @@
 								<button class="btn btn-outline-success my-2 my-sm-0" >Tasks</button>
 								<div class="dropdown-content">
 									{% for term in data.terms %}
-									<a href="#">{{term}}</a>
+									<b href="#">{{term}}</b>
 									{% endfor %}
 								</div>
 							</div>
 							<div class="dropdown">
 								<button class="btn btn-outline-success my-2 my-sm-0">Today</button>
 								<div class="dropdown-content">
-									<a href="#">Link 1</a>
-									<a href="#">Link 2</a>
-									<a href="#">Link 3</a>
+									<b href="#">Link 1</b>
+									<b href="#">Link 2</b>
+									<b href="#">Link 3</b>
 								</div>
 							</div>
 							<div class="dropdown">
 								<button class="btn btn-outline-success my-2 my-sm-0" >Time</button>
 								
 								<div class="dropdown-content" aria-labelledby="navbarDropdown">
-									<a  href="#">calendar</a>
-									<a  href="#">stopwatch</a>
-									<a  href="#">timer</a>
-									<a  href="#">alarm</a>
-									<a  href="#">reminder</a>
-									<a  href="#">calculator</a>
+									<b  href="#">calendar</b>
+									<b  href="#">stopwatch</b>
+									<b  href="#">timer</b>
+									<b  href="#">alarm</b>
+									<b  href="#">reminder</b>
+									<b  href="#">calculator</b>
 								</div>
 							</div>
 						</ul>
@@ -248,10 +248,15 @@
 							<div class="row m-0">
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
 									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark">
-										<form class="form-inline my-0 my-lg-0 float-right">
-											<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-											<button class="btn btn-outline-success my-1 my-sm-0" type="submit">re-Search document</button>
-										</form>
+										<div class="dropdown">
+											<button class="btn btn-outline-success my-2 my-sm-0">Drive_docs</button>
+											<div id="drive_files" class="dropdown-content" >
+												<b id="drive_files1" >Creat New File</b>
+											</div>
+										</div>
+										 <!--Add buttons to initiate auth sequence and sign out-->
+                                        <button id="authorize_button" style="display: none;">Authorize</button>
+                                        <button id="signout_button" style="display: none;float: right;">Sign Out</button>
 									</nav>
 								</div>
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
@@ -346,5 +351,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
 	
 	<script type="text/javascript" src="{% static "interface/js/javascript.js" %}"></script>
+	<script type="text/javascript" src="{% static "interface/js/GoogleApi.js" %}"></script>
+
+	<script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
 	
 </html>
