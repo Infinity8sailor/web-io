@@ -88,6 +88,10 @@ function htmlAdd(file,id) {
     console.log(file +"  "+ id); 
 }
 
+function loadFile(id) {
+  document.getElementById("google_docs_frame").src = "https://drive.google.com/open?id="+id ;
+}
+
 /**
  * Print files.
  */
@@ -102,7 +106,7 @@ function listFiles() {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
         //appendPre(file.name + ' (' + file.id + ')');
-        document.getElementById("drive_files1").insertAdjacentHTML('afterend', "<b> " + file.name + " </b> " );
+        document.getElementById("drive_files1").insertAdjacentHTML('afterend', `<b onclick='loadFile("${file.id}")'> ${file.name} </b>` );
 
        // htmlAdd(file.name,file.id);
         

@@ -16,7 +16,7 @@
 		
 		<!-- style.CSS -->
 		<link rel ="stylesheet" href="{% static "interface/css/style.css" %}">
-		<link rel ="stylesheet" href="{% static "interface/css/corporate.css" %}">
+		<link rel ="stylesheet" href="{% static "interface/css/corporte.css" %}">
 		
 		<!-- Latest compiled and minified CSS 
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
@@ -27,7 +27,7 @@
 	<body>
 		<div class="outer-wrapper">
 			<div class="wrapper">
-				<nav class="navbar  navbar-expand-sm fixed-top navbar-dark bg-dark">
+				<nav class="navbar  navbar-expand-sm fixed-top  bg-dark">
 					<span class="logo-image">
 						<img src="{% static data.icon %}" class="img-fluid">
 					</span>
@@ -38,10 +38,10 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto">
-							<div class="dropdown" ref="#">
-								<button class="btn btn-outline-success my-2 my-sm-0">Projects</button>
+					<div class="collapse navbar-collapse my-2 " id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto ">
+							<div class="dropdown " ref="#">
+								<button class="btn btn-outline-success my-2 my-sm-0"><a href="#slide1" class="btn-outline-success">Projects</a></button>
 								<div class="dropdown-content">
 									<b href="#">project</b>
 									{% for project in data.projects %}
@@ -58,7 +58,7 @@
 								</div>
 							</div>
 							<div class="dropdown">
-								<button class="btn btn-outline-success my-2 my-sm-0">Today</button>
+								<button class="btn btn-outline-success my-2 my-sm-0"><a href="#slide2" class="btn-outline-success">Today</a></button>
 								<div class="dropdown-content">
 									<b href="#">Link 1</b>
 									<b href="#">Link 2</b>
@@ -78,7 +78,7 @@
 								</div>
 							</div>
 							<div class="dropdown">
-								<button  class="btn btn-outline-success my-2 my-sm-0"><a href="#slide3">Google_Docs</a></button>
+								<button  class="btn btn-outline-success my-2 my-sm-0"><a href="#slide3" class="btn-outline-success">Google_Docs</a></button>
 							</div>
 						</ul>
 						<form class="form-inline my-1 my-lg-0">
@@ -93,24 +93,22 @@
 							<div class="row m-0 ">
 								<div class="col-lg-6 col-xl-6 d-flex  p-1 m-0">
 									<div id="stat" class="card flex-fill  bg-dark m-0 ">
-										<div class="card-header text-white bg-dark" >
-											Week-Stat
-											<span style="float:right;">
+										<div class="card-header text-white bg-dark m-0 p-0" >
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
 													<button type="button" class="btn btn-sm btn-primary" id="accountsData">work</button>
 													<button type="button" class="btn btn-sm btn-primary" id="purchasesData">live</button>
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
 												</div>
-											</span>
-										</div>
+											<h5 class="header-title text-white">Weekstat</h5>
+									</div>
 										<div class="chart-container scroll-x" >
 											<canvas id="myChartline" height="100vh"  ></canvas> 
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-3 col-xl-3 d-flex p-1 m-0">
-									<div id="tasks" class="card  flex-fill  m-0  ">
-										<div class="card-header text-white bg-dark">
+									<div id="tasks" class="card  bg-dark flex-fill  m-0  ">
+										<div class="card-header text-white bg-dark ">
 											<span class="material-icons" style="float:right;">add_box</span>
 											<h5 class="header-title text-white">Tasks</h5>
 										</div>
@@ -129,7 +127,7 @@
 								</div>
 								<div class="col-lg-3 col-xl-3 d-flex p-1 m-0 ">
 									<div id="io" class="card flex-fill bg-dark m-0">
-										<div class="card-header text-white bg-dark" >
+										<div class="card-header text-white bg-dark m-0 p-0" >
 											<span style="float:right;">
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
 													<button type="button" class="btn btn-sm btn-primary" id="accountsData">work	</button>
@@ -137,7 +135,7 @@
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
 												</div>
 											</span>
-											<h5 class="header-title text-white mb-0">__i/o__ </h5>
+											<h5 class="header-title text-white m-0">__i/o__ </h5>
 										</div>
 										<div class="card-body flex-fill bg-dark text-white m-0 p-0" >
 											<div class="graph-container">
@@ -150,7 +148,7 @@
 							<div class="row m-0">
 								<div class="col-lg-6 col-xl-6 d-flex p-1 m-0">
 									<div class="card flex-fill text-white bg-dark ">
-										<div class="card-header text-white bg-dark">
+										<div class="card-header text-white bg-dark m-0 p-0" >
 											<span style="float:right;">
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
 													<button type="button" class="btn btn-sm btn-primary" id="accountsData">new	</button>
@@ -201,7 +199,7 @@
 								</div>
 								<div class="col-lg-6 col-xl-6 d-flex p-1 m-0">
 									<div class="card bg-dark flex-fill">
-										<div class="card-header  bg-dark">
+										<div class="card-header  bg-dark m-0 p-0">
 											<span style="float:right;">
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
 													<button type="button" class="btn btn-sm btn-primary" id="accountsData">work	</button>
@@ -209,7 +207,7 @@
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
 												</div>
 											</span>
-											<h5 class="card-title text-white mb-0">Latest Projects</h5>
+											<h5 class="card-title text-white mb-0">hackthone/challenges</h5>
 										</div>
 										<div class="card-body bg-dark scroll p-0">
 											<table id="datatables-dashboard-projects " class="table text-white scroll m-0">
@@ -250,7 +248,7 @@
 						<div class="container-fluid p-0 m-0"  >
 							<div class="row m-0">
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
-									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark">
+									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark " >
 										<div class="dropdown">
 											<button class="btn btn-outline-success my-2 my-sm-0">Drive_docs</button>
 											<div id="drive_files" class="dropdown-content" >
@@ -258,7 +256,7 @@
 											</div>
 										</div>
 										 <!--Add buttons to initiate auth sequence and sign out-->
-                                        <button id="authorize_button" style="display: none;">Authorize</button>
+                                        <button id="authorize_button" style="display: none;float: right;">Authorize</button>
                                         <button id="signout_button" style="display: none;float: right;">Sign Out</button>
 									</nav>
 								</div>
@@ -273,12 +271,15 @@
 							</div>
 							<div class="row m-0">
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0" style="height: 90vh;width: 50vw;">
-									<iframe id="google_docs" class="flex-fill"
+									<iframe id="google_docs_frame" class="flex-fill"
 									src="https://drive.google.com/open?id=1cLP67TaxnbsIAtxjQaK3llE6aSLRezJCLA5wXsudTXQ"  frameborder="0"></iframe>
 								</div>
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0" style="height: 90vh;width: 50vw;">
-									<iframe id="pdf_doc" class="flex-fill"   
-									src="http://relativitet.se/Webarticles/2006AJP-Jonsson74p905.pdf"  frameborder="0"></iframe>
+									<!--
+										src="http://www.google.com"  
+									-->
+									<iframe id="search_view" class="flex-fill"   	
+									src="http://relativitet.se/Webarticles/2006AJP-Jonsson74p905.pdf" frameborder="0"></iframe>
 								</div>
 							</div>
 						</div>

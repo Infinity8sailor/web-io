@@ -9,12 +9,45 @@ html {
 @-ms-viewport {
   width: device-width; }
 
+:root {
+    --blue: #3a89ff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #d9534f;
+    --orange: #fd7e14;
+    --yellow: #f0ad4e;
+    --green: #4bbf73;
+    --teal: #20c997;
+    --cyan: #1f9bcf;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #3a89ff;
+    --secondary: #495057;
+    --success: #4bbf73;
+    --info: #1f9bcf;
+    --warning: #f0ad4e;
+    --danger: #d9534f;
+    --light: #f8f9fa;
+    --dark: #354052;
+    --tertiary: #076aff;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1440px;
+    --font-family-sans-serif: "Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}  
+
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
 body {
   margin: 0;
-  font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Nunito,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -22,6 +55,21 @@ body {
   text-align: left;
   background-color: #fff; 
   
+}
+.bg-dark {
+  background-color: #354052!important;
+}
+.btn-outline-success {
+  color: #4bbf73;
+  border-color: #4bbf73;
+}
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #4bbf73;
+  border-color: #4bbf73;
+}
+.btn-outline-success:focus {
+  box-shadow: 0 0 0 0.2rem rgba(75,191,115,.5);
 }
 .outer-wrapper {
   width: 500vw;
@@ -33,9 +81,9 @@ body {
   align-items:stretch;
   display:-webkit-box;
   display:flex;
+  position: relative;
   flex-direction: row;
-  width:100vw ;
-  height: 100vh;
+  width:100% ;
 }
 .slide {
   margin-top: 40px;
@@ -45,9 +93,20 @@ body {
   
 }
 .navbar {
-  position: absolute;
+  position: relative;
   max-height: 40px;
+  max-width: 100vw;
 }
+.navbar-brand {
+  color: #f8f9fa;
+}
+.fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
 
 .img-fluid{
   width: 40px;
