@@ -141,3 +141,12 @@ function myDoughnut ( id){
     }
   });
 }
+
+
+///////////for searching on web
+
+function searchWeb(){
+  var link = document.getElementById( "search_web").value;
+  console.log(link);
+  document.getElementById("search_view").src = link ;
+}

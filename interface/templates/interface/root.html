@@ -217,7 +217,8 @@
 														<th class="d-none d-xl-table-cell">Start Date</th>
 														<th class="d-none d-xl-table-cell">End Date</th>
 														<th>Status</th>
-														<th class="d-none d-md-table-cell">link to homepage</th>
+														<th>link</th>
+														<th class="d-none d-md-table-cell">Last/Current Task</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -227,7 +228,8 @@
 														<td class="d-none d-xl-table-cell">{{hackthone.1}}</td>
 														<td class="d-none d-xl-table-cell">{{hackthone.2}}</td>
 														<td><span class="badge badge-success">{{hackthone.3}}</span></td>
-														<td class="d-none d-md-table-cell">{{hackthone.4}}</td>
+														<td><span class="badge badge-info">link</span></td>
+														<td class="d-none d-md-table-cell">Awaited task to do</td>
 													</tr>
 													{% endfor %}
 												</tbody>
@@ -252,7 +254,7 @@
 										<div class="dropdown">
 											<button class="btn btn-outline-success my-2 my-sm-0">Drive_docs</button>
 											<div id="drive_files" class="dropdown-content" >
-												<b id="drive_files1" >Creat New File</b>
+												<b id="drive_files1" onclick="execute()">Creat New File</b>
 											</div>
 										</div>
 										 <!--Add buttons to initiate auth sequence and sign out-->
@@ -263,8 +265,8 @@
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
 									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark">
 										<form class="form-inline my-0 my-lg-0 float-right">
-											<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-											<button class="btn btn-outline-success my-1 my-sm-0" type="submit">re-Search document</button>
+											<input id="search_web" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+											<a class="btn btn-outline-success my-1 my-sm-0 text-green"  onclick="searchWeb()">re-Search document</a>
 										</form>
 									</nav>
 								</div>

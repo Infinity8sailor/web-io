@@ -1,6 +1,6 @@
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '374169744841-5a12hnmpq5jlkcolu32j0idl1ndfcc13.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyARqsl9a5v-R48nWhldLNN3GlSFwJpcqLs';
+var API_KEY = 'AIzaSyBDPyH3rItE1rN1SxZeFEV3DoTxdduHBVU';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
@@ -32,6 +32,9 @@ function initClient() {
   }).then(function () {
     // Listen for sign-in state changes.
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+    //adding google docs api client load\
+    loadClient();
+
 
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
@@ -83,11 +86,9 @@ function appendPre(message) {
   pre.appendChild(textContent);
 }
 
-function htmlAdd(file,id) {
-    document.getElementById('drive_files').innerHTML +=  "<a> " + file + " </a>"; 
-    console.log(file +"  "+ id); 
-}
 
+
+//loading google docs in iframe
 function loadFile(id) {
   document.getElementById("google_docs_frame").src = "https://drive.google.com/open?id="+id ;
 }
@@ -116,3 +117,80 @@ function listFiles() {
     }
   });
 }
+
+////////////////////////////// google docs api
+
+function loadClient() {
+  gapi.client.setApiKey("AIzaSyBDPyH3rItE1rN1SxZeFEV3DoTxdduHBVU");
+  return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/docs/v1/rest")
+      .then(function() { console.log("GAPI client loaded for API"); },
+            function(err) { console.error("Error loading GAPI client for API", err); });
+}
+
+// Make sure the client is loaded and sign-in is complete before calling this method.
+function execute() {
+  return gapi.client.docs.documents.create({
+    "resource": {
+      "title": "just added5 doc"
+    }
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
+}
+
+gapi.load("client:auth2", function() {
+  gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
+});
+
+
+
+
+/*
+/////neew doc api
+
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+  /**
+   * Sample JavaScript code for docs.documents.create
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/guides/code_samples#javascript
+   */
+  
+   /*
+
+  function authenticate() {
+    return gapi.auth2.getAuthInstance()
+        .signIn({scope: "https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file"})
+        .then(function() { console.log("Sign-in successful"); },
+              function(err) { console.error("Error signing in", err); });
+  }
+  function loadClient() {
+    gapi.client.setApiKey("YOUR_API_KEY");
+    return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/docs/v1/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.docs.documents.create({
+      "resource": {
+        "title": "welcome  to Docs Api ........."
+      }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+  gapi.load("client:auth2", function() {
+    gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
+  });
+</script>
+<button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button>
+
+*/
