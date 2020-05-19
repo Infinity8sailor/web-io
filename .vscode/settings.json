@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "django_env\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
     "appService.zipIgnorePattern": [
         "__pycache__{,/**}",
         "*.py[cod]",

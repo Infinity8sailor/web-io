@@ -12,11 +12,10 @@
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">		
 		<!-- style.CSS -->
 		<link rel ="stylesheet" href="{% static "interface/css/style.css" %}">
-		<link rel ="stylesheet" href="{% static "interface/css/corporte.css" %}">
+		<link rel ="stylesheet" href="{% static "interface/css/timer.css" %}">
 		
 		<!-- Latest compiled and minified CSS 
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
@@ -109,8 +108,47 @@
 								<div class="col-lg-3 col-xl-3 d-flex p-1 m-0">
 									<div id="tasks" class="card  bg-dark flex-fill  m-0  ">
 										<div class="card-header text-white bg-dark ">
-											<span class="material-icons" style="float:right;">add_box</span>
+											<button class="material-icons" style="float:right;" data-toggle="modal" data-target="#TaskModal"> add_box</button>
 											<h5 class="header-title text-white">Tasks</h5>
+										</div>
+										<!-- Button trigger modal -->
+										
+										<!-- Modal -->
+										<div class="modal fade" id="TaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header bg-success">
+														<h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body bg-dark">
+														<form class="modal-content bg-info" a>
+															<div class="container">
+																<label for="hackthone" style="display: block;"><b>Name Task</b></label>
+																<input type="text" placeholder="Enter name" name="email" required>
+																
+																<label for="Start" style="display: block;"><b>Completion</b></label>
+																<input type="password" placeholder="Enter starting...." name="psw" required>
+
+																<label for="End" style="display: block;"><b>time limit</b></label>
+																<input type="password" placeholder="Enter Ending....." name="psw-repeat" required>
+																
+																<label for="link" style="display: block;"><b>link of webpage</b></label>
+																<input type="text" placeholder="Enter link" name="email" required>
+																
+																<label>
+																	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">  On Timline																</label>
+															</div>
+														</form>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-primary">Add Task</button>
+													</div>
+												</div>
+											</div>
 										</div>
 										<div class="card-body flex-fill  m-0 p-0">
 											<ul class="list-group scroll flex-fill m-0 p-0">
@@ -151,7 +189,7 @@
 										<div class="card-header text-white bg-dark m-0 p-0" >
 											<span style="float:right;">
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
-													<button type="button" class="btn btn-sm btn-primary" id="accountsData">new	</button>
+													<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal">ADD</button>
 													<button type="button" class="btn btn-sm btn-primary" id="purchasesData">live</button>
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">therotical</button>
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">optimized</button>
@@ -160,14 +198,54 @@
 											</span>
 											<h5>Projects</h5>
 										</div>
-										<div class="card-body scroll p-0">
-											<table class="table text-white bg-dark ">
-												<thead>
-													<tr>
-														<th>Projects</th>
-														<th class="text-right">percentage</th>
-														<th class="d-none d-xl-table-cell w-75">status</th>
-													</tr>
+										<!-- Button trigger modal -->
+										
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header bg-success">
+														<h5 class="modal-title" id="exampleModalLabel">Add hackthones Or challenges</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body bg-dark">
+														<form class="modal-content bg-info" a>
+															<div class="container">
+																<label for="hackthone" style="display: block;"><b>Name hackthone</b></label>
+																<input type="text" placeholder="Enter name" name="email" required>
+																
+																<label for="Start" style="display: block;"><b>start date</b></label>
+																<input type="password" placeholder="Enter starting...." name="psw" required>
+
+																<label for="End" style="display: block;"><b>end date</b></label>
+																<input type="password" placeholder="Enter Ending....." name="psw-repeat" required>
+																
+																<label for="link" style="display: block;"><b>link of homepage</b></label>
+																<input type="text" placeholder="Enter link" name="email" required>
+																
+																<label>
+																	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Registered for this
+																</label>
+															</div>
+														</form>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-primary">Add</button>
+													</div>
+												</div>
+											</div>
+										</div>
+											<div class="card-body scroll p-0">
+												<table class="table text-white bg-dark ">
+													<thead>
+														<tr>
+															<th>Projects</th>
+															<th class="text-right">percentage</th>
+															<th class="d-none d-xl-table-cell w-75">status</th>
+														</tr>
 												</thead>
 												<tbody>
 													{% for project in data.projects %}
@@ -202,6 +280,7 @@
 										<div class="card-header  bg-dark m-0 p-0">
 											<span style="float:right;">
 												<div class="btn-group float-right pr-3" role="group" aria-label="Basic example">
+													<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#hackthoneModal">ADD</button>
 													<button type="button" class="btn btn-sm btn-primary" id="accountsData">work	</button>
 													<button type="button" class="btn btn-sm btn-primary" id="purchasesData">live</button>
 													<button type="button" class="btn btn-sm btn-primary" id="sessionsData">projected</button>
@@ -209,23 +288,63 @@
 											</span>
 											<h5 class="card-title text-white mb-0">hackthone/challenges</h5>
 										</div>
-										<div class="card-body bg-dark scroll p-0">
-											<table id="datatables-dashboard-projects " class="table text-white scroll m-0">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th class="d-none d-xl-table-cell">Start Date</th>
-														<th class="d-none d-xl-table-cell">End Date</th>
-														<th>Status</th>
-														<th>link</th>
-														<th class="d-none d-md-table-cell">Last/Current Task</th>
-													</tr>
-												</thead>
-												<tbody>
-													{% for hackthone in data.hackthones %}
-													<tr>
-														<td>{{hackthone.0}}</td>
-														<td class="d-none d-xl-table-cell">{{hackthone.1}}</td>
+										<!-- Button trigger modal -->
+										
+										<!-- Modal -->
+										<div class="modal fade" id="hackthoneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header bg-success">
+														<h5 class="modal-title" id="exampleModalLabel">Add hackthones Or challenges</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body bg-dark">
+														<form class="modal-content bg-info" a>
+															<div class="container">
+																<label for="hackthone" style="display: block;"><b>Name hackthone</b></label>
+																<input type="text" placeholder="Enter name" name="email" required>
+																
+																<label for="Start" style="display: block;"><b>start date</b></label>
+																<input type="password" placeholder="Enter starting...." name="psw" required>
+
+																<label for="End" style="display: block;"><b>end date</b></label>
+																<input type="password" placeholder="Enter Ending....." name="psw-repeat" required>
+																
+																<label for="link" style="display: block;"><b>link of homepage</b></label>
+																<input type="text" placeholder="Enter link" name="email" required>
+																
+																<label>
+																	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Registered for this
+																</label>
+															</div>
+														</form>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-primary">Add</button>
+													</div>
+												</div>
+											</div>
+										</div>
+											<div class="card-body bg-dark scroll p-0">
+												<table id="datatables-dashboard-projects " class="table text-white scroll m-0">
+													<thead>
+														<tr>
+															<th>Name</th>
+															<th class="d-none d-xl-table-cell">Start Date</th>
+															<th class="d-none d-xl-table-cell">End Date</th>
+															<th>Status</th>
+															<th>link</th>
+															<th class="d-none d-md-table-cell">Last/Current Task</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for hackthone in data.hackthones %}
+														<tr>
+															<td>{{hackthone.0}}</td>
+															<td class="d-none d-xl-table-cell">{{hackthone.1}}</td>
 														<td class="d-none d-xl-table-cell">{{hackthone.2}}</td>
 														<td><span class="badge badge-success">{{hackthone.3}}</span></td>
 														<td><span class="badge badge-info">link</span></td>
@@ -252,9 +371,9 @@
 								<div class="col-lg-6 col-xl-6 d-flex m-0 p-0">	
 									<nav class="navbar  navbar-expand-sm navbar-dark flex-fill bg-dark " >
 										<div class="dropdown">
-											<button class="btn btn-outline-success my-2 my-sm-0">Drive_docs</button>
-											<div id="drive_files" class="dropdown-content" >
-												<b id="drive_files1" onclick="execute()">Creat New File</b>
+											<button class="btn btn-outline-success my-2 my-sm-0"><span><img src="{% static "interface/images/googleDrive.png" %}" alt="google drive" style="width: 120px;height: 25px;border-radius: 10%;overflow: hidden;"></span></button>
+											<div id="drive_files" class="dropdown-content scroll" >
+												<b id="drive_files1" onclick="execute()" style="color:red">Creat New File</b>
 											</div>
 										</div>
 										 <!--Add buttons to initiate auth sequence and sign out-->
@@ -268,6 +387,7 @@
 											<input id="search_web" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 											<a class="btn btn-outline-success my-1 my-sm-0 text-green"  onclick="searchWeb()">re-Search document</a>
 										</form>
+										<div id="app"></div>
 									</nav>
 								</div>
 							</div>
@@ -336,20 +456,24 @@
 							</div>
 						</div>
 					</div>
-					<!-- 16:9 aspect ratio -->
-	                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4iBqwJp5xLOLtt8a54YCks8OE1HtPCXN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<div id="mydiv">
+						<!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+						<div id="mydivheader"  class="material-icons" style="float:right;">open_with
+						</div>
+						<!-- 16:9 aspect ratio -->
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL4iBqwJp5xLOLtt8a54YCks8OE1HtPCXN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
 			</div>
-		</div>
 		</div>
 	</body>
 	
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>			
 	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	
+	  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 	
@@ -358,10 +482,23 @@
 	
 	<script type="text/javascript" src="{% static "interface/js/javascript.js" %}"></script>
 	<script type="text/javascript" src="{% static "interface/js/GoogleApi.js" %}"></script>
+	<script type="text/javascript" src="{% static "interface/js/timer.js" %}"></script>
 
 	<script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+	</script>
+	
+	<script>
+		// Get the modal
+		var modal = document.getElementById('id01');
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+		</script>
 	
 </html>
