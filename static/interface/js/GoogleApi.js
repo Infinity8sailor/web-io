@@ -97,9 +97,10 @@ function loadFile(id) {
  * Print files.
  */
 function listFiles() {
-  gapi.client.drive.files.list({
-    'pageSize': 10,
-    'fields': "nextPageToken, files(id, name)"
+  gapi.client.drive.files.list({  //'q': "mimeType = 'application/vnd.google-apps.folder'",
+    'pageSize': 20,
+    'fields': "nextPageToken, files(id, name,parents,mimeType)",
+    'trashed' : false
   }).then(function(response) {
     //appendPre('Files:');
     var files = response.result.files;
@@ -107,7 +108,9 @@ function listFiles() {
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
         //appendPre(file.name + ' (' + file.id + ')');
+      
         document.getElementById("drive_files1").insertAdjacentHTML('afterend', `<b onclick='loadFile("${file.id}")'> ${file.name} </b>` );
+        console.log(file);
 
        // htmlAdd(file.name,file.id);
         
@@ -117,6 +120,8 @@ function listFiles() {
     }
   });
 }
+
+
 
 ////////////////////////////// google docs api
 
@@ -131,12 +136,15 @@ function loadClient() {
 function execute() {
   return gapi.client.docs.documents.create({
     "resource": {
-      "title": "just added5 doc"
+      "title": "New DOC Added REname it....."
     }
   })
       .then(function(response) {
               // Handle the results here (response.result has the parsed body).
-              console.log("Response", response);
+              console.log("Response", response,response.documentId,response.title);
+              document.getElementById("drive_files1").insertAdjacentHTML('afterend', `<b onclick='loadFile("${response.result.documentId}")'> ${response.result.title} </b>` );
+              loadFile(response.result.documentId);
+
             },
             function(err) { console.error("Execute error", err); });
 }
@@ -144,7 +152,7 @@ function execute() {
 gapi.load("client:auth2", function() {
   gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
 });
-
+ 
 
 
 
