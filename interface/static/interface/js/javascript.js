@@ -143,6 +143,7 @@ function myDoughnut ( id){
 }
 
 
+
 ///////////for searching on web
 
 function searchWeb(){
@@ -150,6 +151,8 @@ function searchWeb(){
   console.log(link);
   document.getElementById("search_view_a").src = link ;
 }
+
+
 
 ////////////////////////////for dragable div elements
 // Make the DIV element draggable:
@@ -194,4 +197,17 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+}
+
+
+/////////////////Carret listing file system......
+
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
 }
