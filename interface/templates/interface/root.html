@@ -300,29 +300,30 @@
 														</button>
 													</div>
 													<div class="modal-body bg-dark">
-														<form class="modal-content bg-info" a>
+														<form class="modal-content bg-info" method="post">
+															{% csrf_token %}
 															<div class="container">
 																<label for="hackthone" style="display: block;"><b>Name hackthone</b></label>
-																<input type="text" placeholder="Enter name" name="email" required>
+																<input type="text" placeholder="Enter name" name="hackthone_name" required>
 																
 																<label for="Start" style="display: block;"><b>start date</b></label>
-																<input type="password" placeholder="Enter starting...." name="psw" required>
+																<input type="text" placeholder="Enter starting...." name="hackthone_start" required>
 
 																<label for="End" style="display: block;"><b>end date</b></label>
-																<input type="password" placeholder="Enter Ending....." name="psw-repeat" required>
+																<input type="text" placeholder="Enter Ending....." name="hackthone_end" required>
 																
 																<label for="link" style="display: block;"><b>link of homepage</b></label>
-																<input type="text" placeholder="Enter link" name="email" required>
+																<input type="text" placeholder="link with http format" name="hackthone_link" required>
 																
-																<label>
-																	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Registered for this
-																</label>
+																<label for="reg" style="display: block;"><b>date of registration</b></label>
+																<input type="text" placeholder="Enter date of reg" name="hackthone_reg" required>
+																
+																<div class="modal-footer bg-dark">
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	<button type="submit" class="btn btn-primary">Add</button>
+																</div>
 															</div>
 														</form>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-														<button type="button" class="btn btn-primary">Add</button>
 													</div>
 												</div>
 											</div>
@@ -340,13 +341,13 @@
 														</tr>
 													</thead>
 													<tbody>
-														{% for hackthone in data.hackthones %}
+														{% for hackthone,details in data.hackthones.items %}
 														<tr>
-															<td>{{hackthone.0}}</td>
-															<td class="d-none d-xl-table-cell">{{hackthone.1}}</td>
-														<td class="d-none d-xl-table-cell">{{hackthone.2}}</td>
-														<td><span class="badge badge-success">{{hackthone.3}}</span></td>
-														<td><span class="badge badge-info">link</span></td>
+															<td>{{hackthone}}</td>
+															<td class="d-none d-xl-table-cell">{{details.0}}</td>
+														<td class="d-none d-xl-table-cell">{{details.1}}</td>
+														<td><span class="badge badge-success">online</span></td>
+														<td><span ><a href="{{details.2}}" target="_blank">{{details.2}} </a></span></td>
 														<td class="d-none d-md-table-cell">Awaited task to do</td>
 													</tr>
 													{% endfor %}

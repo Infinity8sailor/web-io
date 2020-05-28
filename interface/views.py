@@ -1,87 +1,31 @@
 # interface/views.py
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
+import json
 from django.views.generic import View 
    
 #from rest_framework.views import APIView 
 #from rest_framework.response import Response 
-
-
-data1 ={
-    "user" : "infinity8sailor" ,
-    "icon" : "interface/images/me.jpg",
-    "projects" : {
-        "glass-Ai":[10,40],
-        "#SE" : [20,70],
-        "RoboCup@Home":[ 85, 40],
-        "interface" :[ 100, 50 , {
-            'server':[
-                'types of server',
-                'How to unlock database'
-                'Rest Api'],
-            'html':[],
-            'css':[
-                'view distorted by corporate.css',],
-            'js':[
-                'tasks addition functionality'],
-            'django framework':[
-                'Set debug to false',
-                'models',],
-            'hosting':[],
-            'web Api’s':[ 
-                'google maps',
-                'google docs',
-                'youtube',
-                'google drive',]}
-],
-        "wave-io":[ 10, 70],
-        "mL + Ai": [20, 60],
-        "vit-Edi": [70, 50]
-    },
-    "terms" :["long-term","short-term"],
-    "tasks" :[
-        ["b/w - i/o " , 80],
-        ["Api blog" , 50],
-        ["Api calendar" ,50],
-        ["Api docs" ,70],
-        ["resume page" ,40],
-        ["splitor day" ,60],
-        ["live stat" , 20],
-        ["connectivity", 10],
-        ["project_session", 40],
-        ["passion", 20]
-    ],
-    "hackthones" : [
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-        ["mechathone","20 may", "5 june" , "Done"],
-    ],
-    "timeline" :{
-        "21 may 2020":[],
-        "22 may 2020":["day card","js to card","date live to nav ","server input to json/text"],
-        "23 may 2020":[],
-        }
-
-}
-
-
+with open("interface/data.json") as f:
+            data=json.load(f)
+            f.close 
+ 
+def dump_data(edited_data):
+        with open("interface/data.json","w") as f:
+            json.dump(edited_data,f)
+            f.close
 
 def index0(request):
-    context ={"data" : data1 }
+    context ={"data" : data }
+    if request.method=="POST":
+        hackthone_name=request.POST['hackthone_name']
+        hackthone_start=request.POST['hackthone_start']
+        hackthone_end=request.POST['hackthone_end']
+        hackthone_link=request.POST['hackthone_link']
+        hackthone_reg=request.POST['hackthone_reg']    
+        data["hackthones"][hackthone_name]=[ hackthone_start, hackthone_end, hackthone_link, hackthone_reg]
+        dump_data(data)
     return render(request,'interface/root.html' , context)
-
-def index(request):
-    context ={"data" : data1 }
-    return render(request,'interface/root.html' , context)    
 
 def home(request):
     return render(request,'interface/home.html')
