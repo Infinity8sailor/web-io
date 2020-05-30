@@ -123,38 +123,34 @@
 														</button>
 													</div>
 													<div class="modal-body bg-dark">
-														<form class="modal-content bg-info" a>
+														<form class="modal-content bg-info" method="post">
+															{% csrf_token %}
 															<div class="container">
-																<label for="hackthone" style="display: block;"><b>Name Task</b></label>
-																<input type="text" placeholder="Enter name" name="email" required>
+																<label for="task_name" style="display: block;"><b>Name Task</b></label>
+																<input type="text" placeholder="Enter name" name="task_name" required>
 																
-																<label for="Start" style="display: block;"><b>Completion</b></label>
-																<input type="password" placeholder="Enter starting...." name="psw" required>
+																<label for="task_completion" style="display: block;"><b>Completion</b></label>
+																<input type="text" placeholder="Enter starting...." name="task_completion" required>
 
-																<label for="End" style="display: block;"><b>time limit</b></label>
-																<input type="password" placeholder="Enter Ending....." name="psw-repeat" required>
+																<label for="task_deadline" style="display: block;"><b>time limit</b></label>
+																<input type="text" placeholder="Enter Ending....." name="task_deadline" required>
 																
-																<label for="link" style="display: block;"><b>link of webpage</b></label>
-																<input type="text" placeholder="Enter link" name="email" required>
-																
-																<label>
-																	<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">  On Timline																</label>
+																<div class="modal-footer bg-dark">
+																	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	<button type="submit" class="btn btn-primary">Add Task</button>
+																</div>
 															</div>
 														</form>
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-														<button type="button" class="btn btn-primary">Add Task</button>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="card-body flex-fill  m-0 p-0">
 											<ul class="list-group scroll flex-fill m-0 p-0">
-												{% for task in data.tasks %}
-												<div class="list-group-item bg-dark text-white  ">{{task.0}}
+												{% for task,details in data.tasks.items %}
+												<div class="list-group-item bg-dark text-white  ">{{task}}  < {{details.1}} >
 													<div class="progress " style="float: right; width: 125px;">
-														<div class="progress-bar " style="width:{{task.1}}%">{{task.1}}%</div>
+														<div class="progress-bar " style="width:{{details.0}}%">{{details.0}}%</div>
 													</div>
 												</div>
 												{% endfor %}
@@ -300,7 +296,7 @@
 														</button>
 													</div>
 													<div class="modal-body bg-dark">
-														<form class="modal-content bg-info" method="post">
+														<form class="modal-content bg-info" method="post" >
 															{% csrf_token %}
 															<div class="container">
 																<label for="hackthone" style="display: block;"><b>Name hackthone</b></label>
@@ -361,31 +357,76 @@
 					</div>
 				</div>
 				<div id="slide2" class="slide" style="background: rgb(19, 75, 88);">
-				<iframe id = "gmaps" width="300" height="300" frameborder="0" 
-									src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC-afFMN7qoeNN0B-FjGrDCGITQRjBcpxg&q=india&maptype=satellite" allowfullscreen></iframe>
+					<div class="card scroll" style="width: 300px;">
+						<div class="modal fade" id="topicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header bg-success">
+										<h5 class="modal-title" id="exampleModalLabel">Add topic/Sub_topic</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body bg-dark">
+										<form class="modal-content bg-info" method="post" >
+											{% csrf_token %}
+											<div class="container">
+												<label for="sel1">Projects</label>
+												<select class="form-control" id="sel1" name="project_name">
+													{% for project in data.projects %}
+													<option value="{{project}}">{{project}}</option>
+													{% endfor %}
+												</select>
+												<label for="sel2">topics</label>
+												<input type="text" placeholder="add new topic name" name="new_topic_name">
+												<select class="form-control" id="sel2" name="topic_name">
+													{% for project,details in data.projects.items %}
+													{% for topic in details.2%}
+													<option value="{{topic}}">{{project}}-{{topic}}</option>
+													{% endfor %}
+													{% endfor %}
+												</select>
+													
+												<label for="sub_topic" style="display: block;"><b>sub topic</b></label>
+												<input type="text" placeholder="Enter sub_topic....." name="sub_topic_name" >
+												
+												<div class="modal-footer bg-dark">
+													<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary">Add</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<ul id="myUL">
+							{% for project,details in data.projects.items %}
+							<li>
+								<span class="caret">{{project}}
+								</span>
+								<ul class="nested">
+									{% for key, values in details.2.items %}
+									<li>
+										<span class="caret">{{key}}</span>
+										<ul class="nested">
+											{% for value in values %}
+											<li>{{value}}</li>
+											{% endfor %}
+										</ul>
+									</li>
+									{% endfor %}
+									<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#topicModal">ADD_new</button>
+								</ul>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<iframe id = "gmaps" width="300" height="300" frameborder="0" 
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC-afFMN7qoeNN0B-FjGrDCGITQRjBcpxg&q=india&maptype=satellite" allowfullscreen>
+				</iframe>
+			</div>
 				
-				<div class="card scroll" style="width: 300px;">
-					<ul id="myUL">
-						{% for project,details in data.projects.items %}
-						<li>
-							<span class="caret">{{project}}</span>
-							<ul class="nested">
-								{% for key, values in details.2.items %}
-								<li>
-									<span class="caret">{{key}}</span>
-									<ul class="nested">
-										{% for value in values %}
-										<li>{{value}}</li>
-										{% endfor %}
-									</ul>
-								</li>
-								{% endfor %}
-							</ul>
-						</li>
-						{% endfor %}
-					</ul>
-				</div>
-			    </div>
 				<div id="slide3" class="slide" style="background: rgb(54, 159, 190);">
 					<div class="content p-0 m-0" >
 						<div class="container-fluid p-0 m-0"  >

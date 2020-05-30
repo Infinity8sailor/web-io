@@ -152,6 +152,10 @@ function searchWeb(){
   document.getElementById("search_view_a").src = link ;
 }
 
+///////////////////////////////ading select option in post
+$var = $_POST['project_name'];
+$var1 = $_POST['topic_name'];
+
 
 
 ////////////////////////////for dragable div elements

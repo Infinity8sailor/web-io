@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import json
 from django.views.generic import View 
+from . import forms
    
 #from rest_framework.views import APIView 
 #from rest_framework.response import Response 
@@ -15,16 +16,49 @@ def dump_data(edited_data):
             json.dump(edited_data,f)
             f.close
 
+def hackthone(post_data):
+    hackthone_name=post_data['hackthone_name']
+    hackthone_start=post_data['hackthone_start']
+    hackthone_end=post_data['hackthone_end']
+    hackthone_link=post_data['hackthone_link']
+    hackthone_reg=post_data['hackthone_reg']    
+    data["hackthones"][hackthone_name]=[ hackthone_start, hackthone_end, hackthone_link, hackthone_reg]
+    dump_data(data)
+
+def tasks(post_data):
+    task_name=post_data["task_name"]
+    task_completion=post_data["task_completion"]
+    task_deadline=post_data["task_deadline"]
+    #task_extra=post_data["task_extra"]
+    data["tasks"][task_name]=[task_completion,task_deadline]
+    dump_data(data)
+
+def topic_sub_topic(post_data):
+    project_name=post_data["project_name"]
+    if "new_topic_name" in post_data and "new_topic_name"!="":
+        topic_name=post_data["new_topic_name"]
+        data["projects"][project_name][2][topic_name]=[]
+        if "sub_topic_name" in post_data:
+            sub_topic_name=post_data["sub_topic_name"]
+            print("done")
+            data["projects"][project_name][2][topic_name].append(sub_topic_name)
+
+    if "topic_name" and "sub_topic_name" in post_data and "new-topic_name"=="":
+        sub_topic_name=post_data["sub_topic_name"]
+        topic_name=post_data["topic_name"]
+        data["projects"][project_name][2][topic_name].append(sub_topic_name)
+    dump_data(data)
+
 def index0(request):
     context ={"data" : data }
     if request.method=="POST":
-        hackthone_name=request.POST['hackthone_name']
-        hackthone_start=request.POST['hackthone_start']
-        hackthone_end=request.POST['hackthone_end']
-        hackthone_link=request.POST['hackthone_link']
-        hackthone_reg=request.POST['hackthone_reg']    
-        data["hackthones"][hackthone_name]=[ hackthone_start, hackthone_end, hackthone_link, hackthone_reg]
-        dump_data(data)
+        if 'hackthone_name' in request.POST:
+            hackthone(request.POST)
+        if "task_name" in request.POST:
+            tasks(request.POST)
+        if "topic_name" or "new_topic_name" in request.POST:
+            topic_sub_topic(request.POST)        
+
     return render(request,'interface/root.html' , context)
 
 def home(request):
