@@ -4,6 +4,27 @@ from django.http import HttpResponse
 import json
 from django.views.generic import View 
 from . import forms
+import pyrebase
+
+config = {
+    "apiKey": "AIzaSyDVCJQx1l5Zxuk7YdUag3qVk2L7sHvqMfY",
+  "authDomain": "admin-io-8808.firebaseapp.com",
+  "databaseURL": "https://admin-io-8808-default-rtdb.asia-southeast1.firebasedatabase.app",
+  "projectId": "admin-io-8808",
+  "storageBucket": "admin-io-8808.appspot.com",
+  "messagingSenderId": "916545259883",
+  "appId": "1:916545259883:web:17abcb410b6b39820f642e",
+  "measurementId": "G-2M78T33M4E"
+}
+
+firebase=pyrebase.initialize_app(config)
+authe = firebase.auth()
+database = firebase.database()
+
+def test(req):
+    password = database.child("admin-io").child("pass").get().val()
+    return render(req, "interface/sudo_index.html", {"password" :password})
+
    
 #from rest_framework.views import APIView 
 #from rest_framework.response import Response 
