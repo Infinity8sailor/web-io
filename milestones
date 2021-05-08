@@ -2,8 +2,8 @@ server
 basic backend   #python /django 
 online   # database lock issue
 basic frontend  #html/css/js
-frontend framework  # angular js /react jQuerry
+frontend framework  Django
 wesite home page             #Django stack: JavaScript - Python - Django - MySQL
 working on API
-database #sqlite/mySQL/noSQL
+database # mongodb
 

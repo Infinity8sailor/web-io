@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.index0, ),
    # path('charts/', views.charts),
    #  path('api/', views.ChartData.as_view()), 
+    path('test/', views.test), 
     path('home/', views.home, name='home'),
     path('docs/', views.docs, name='about'),
 ]
