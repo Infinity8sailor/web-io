@@ -1,3 +1,8 @@
-from django.db import models
+from djongo import models
 
-# Create your models here.
+class Person(models.Model):
+    # _id = models.ObjectIdField()
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=30)
+

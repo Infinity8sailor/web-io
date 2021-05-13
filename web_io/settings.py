@@ -11,16 +11,23 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dotenv # <- New
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Add .env variables anywhere before SECRET_KEY
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3#3!6vx42ln5vv$#6@v$xe1wvc$7s=w91+mt-n$$f023le!*d7'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -81,9 +88,13 @@ WSGI_APPLICATION = 'web_io.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'timeout' : 5000,
+        'ENGINE': 'djongo',
+        'CLIENT' : {
+            'host' : os.environ['DATABASE_URL'],
+            'username' : os.environ['DATABASE_USER'],
+            'password' : os.environ['DATABASE_PASS'],
+            'name': 'admin-io',
+        }
     }
 }
 
