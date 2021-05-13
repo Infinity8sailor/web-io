@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'CLIENT' : {
-            'host' : os.environ['DATABASE_URL'],
+            'host' : os.environ['MONGO_DB_URL'],
             'username' : os.environ['DATABASE_USER'],
             'password' : os.environ['DATABASE_PASS'],
             'name': 'admin-io',

@@ -1,30 +1,28 @@
 # interface/views.py
+from typing import Collection
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import json
 from django.views.generic import View 
-from . import forms
-import pyrebase
+from .models import Tasks
+from pymongo import MongoClient
+import os
 
-config = {
-    "apiKey": "AIzaSyDVCJQx1l5Zxuk7YdUag3qVk2L7sHvqMfY",
-  "authDomain": "admin-io-8808.firebaseapp.com",
-  "databaseURL": "https://admin-io-8808-default-rtdb.asia-southeast1.firebasedatabase.app",
-  "projectId": "admin-io-8808",
-  "storageBucket": "admin-io-8808.appspot.com",
-  "messagingSenderId": "916545259883",
-  "appId": "1:916545259883:web:17abcb410b6b39820f642e",
-  "measurementId": "G-2M78T33M4E"
-}
 
-firebase=pyrebase.initialize_app(config)
-authe = firebase.auth()
-database = firebase.database()
+client = MongoClient(os.environ['MONGO_DB_URL'])
+db = client["admin-io"]
+# print(collection)
+# print(db.list_collection_names())
 
-def test(req):
-    password = database.child("admin-io").child("pass").get().val()
-    return render(req, "interface/sudo_index.html", {"password" :password})
 
+def Tasks_view(tsk):
+    task = Tasks()
+    task.Task_name = tsk['task_name']
+    task.Task_start = tsk['task_completion']
+    task.Task_end = tsk['task_deadline']
+    task.save()
+    collection = db.interface_tasks
+    return collection.find({})
    
 #from rest_framework.views import APIView 
 #from rest_framework.response import Response 
@@ -73,12 +71,16 @@ def topic_sub_topic(post_data):
 def index0(request):
     context ={"data" : data }
     if request.method=="POST":
+        if "task_name" in request.POST:
+            raw_tasks = Tasks_view(request.POST)
+            tasks = {}
+            for i in raw_tasks:
+                tasks[i["Task_name"]] = [i["Task_start"], i["Task_end"]]
+            context['data']["tasks"] = tasks
         if 'hackthone_name' in request.POST:
             hackthone(request.POST)
-        if "task_name" in request.POST:
-            tasks(request.POST)
-        if "topic_name" or "new_topic_name" in request.POST:
-            topic_sub_topic(request.POST)        
+        # if "topic_name" or "new_topic_name" in request.POST:
+        #     topic_sub_topic(request.POST)        
 
     return render(request,'interface/root.html' , context)
 
@@ -89,7 +91,10 @@ def charts(request):
     return render(request,'interface/charts.html')    
 
 def docs(request):
-    return render(request, 'interface/docs.html')        
+    return render(request, 'interface/docs.html')
+
+def Login(req):
+    return render(req,'interface/login_page.html')    
 
 """
 class HomeView(View): 

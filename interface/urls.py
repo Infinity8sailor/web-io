@@ -7,10 +7,11 @@ from django.conf.urls.static import static
 from django.views.static import serve
 
 urlpatterns = [
-    path('', views.index0, ),
+    path('', views.Login, name="Login_Page"),
+    path('infinity_sailor/', views.index0, ),
    # path('charts/', views.charts),
    #  path('api/', views.ChartData.as_view()), 
-    path('test/', views.test), 
+    # path('test/', views.test), 
     path('home/', views.home, name='home'),
     path('docs/', views.docs, name='about'),
 ]
